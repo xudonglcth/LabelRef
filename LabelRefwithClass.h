@@ -20,7 +20,6 @@ public:
     std::vector<std::set<std::pair<size_t, size_t>>> label;
     std::vector<size_t > partitions;
     transition subTrans;
-
     int tau = 0;
     void transSystemReduce(){
         size_t n = states.size(), count;
