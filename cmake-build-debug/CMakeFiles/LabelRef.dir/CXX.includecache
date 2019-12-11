@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/liangxudong/CLionProjects/LabelRef/LabelRefwithClass.h
+ReadVLTS.h
+/Users/liangxudong/CLionProjects/LabelRef/ReadVLTS.h
+vector
+-
+set
+-
+map
+-
+
+/Users/liangxudong/CLionProjects/LabelRef/ReadVLTS.h
+iostream
+-
+sstream
+-
+fstream
+-
+map
+-
+vector
+-
+
+/Users/liangxudong/CLionProjects/LabelRef/main.cpp
+iostream
+-
+ReadVLTS.h
+/Users/liangxudong/CLionProjects/LabelRef/ReadVLTS.h
+LabelRefwithClass.h
+/Users/liangxudong/CLionProjects/LabelRef/LabelRefwithClass.h
+
