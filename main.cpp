@@ -200,7 +200,7 @@ int main() {
     }
 */
     {
-        testPerformance("vasy_25_25");
+        testPerformance("vasy_40_60");
     }
     return 0;
 }

@@ -11,6 +11,7 @@
 #include <map>
 typedef std::vector<std::vector<size_t >> trans_per_state;
 typedef std::vector<size_t > bound;
+using in_going_trans = std::vector<size_t >;
 class LabelRef {
 public:
     state states;
@@ -19,7 +20,6 @@ public:
     bound lower_bound, upper_bound;
     std::vector<std::set<std::pair<size_t, size_t>>> label;
     std::vector<size_t > partitions;
-    transition subTrans;
     int tau = 0;
     void transSystemReduce(){
         size_t n = states.size(), count;
@@ -91,9 +91,20 @@ public:
     void labelInsert(size_t target, size_t event, size_t block){
         if (label[target].insert(std::make_pair(event, block)).second){
             for(size_t i = lower_bound[target]; i < upper_bound[target]; i++){
-                std::vector<size_t > ingoingTrans = inTransPerState[i];
+                //in_going_trans ingoingTrans = inTransPerState[i];
+                if (inTransPerState[i][1] == tau && partitions[target] == partitions[inTransPerState[i][0]]){
+                    labelInsert(inTransPerState[i][0], event, block);
+                }
+            }
+        }
+    }
+
+    void labelInsert_1(size_t target, size_t event, size_t block){
+        if (label[target].insert(std::make_pair(event, block)).second){
+            for(size_t i = lower_bound[target]; i < upper_bound[target]; i++){
+                in_going_trans ingoingTrans = inTransPerState[i];
                 if (ingoingTrans[1] == tau && partitions[target] == partitions[ingoingTrans[0]]){
-                    labelInsert(ingoingTrans[0], event, block);
+                    labelInsert_1(ingoingTrans[0], event, block);
                 }
             }
         }
