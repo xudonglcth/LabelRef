@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/Users/liangxudong/CLionProjects/LabelRef/BBSinBoolean.h
+LabelRefwithClass.h
+/Users/liangxudong/CLionProjects/LabelRef/LabelRefwithClass.h
+
 /Users/liangxudong/CLionProjects/LabelRef/LabelRefwithClass.h
 ReadVLTS.h
 /Users/liangxudong/CLionProjects/LabelRef/ReadVLTS.h
@@ -35,4 +39,8 @@ ReadVLTS.h
 /Users/liangxudong/CLionProjects/LabelRef/ReadVLTS.h
 LabelRefwithClass.h
 /Users/liangxudong/CLionProjects/LabelRef/LabelRefwithClass.h
+BBSinBoolean.h
+/Users/liangxudong/CLionProjects/LabelRef/BBSinBoolean.h
+tuple
+-
 

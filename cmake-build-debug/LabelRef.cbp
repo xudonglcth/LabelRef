@@ -80,6 +80,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/liangxudong/CLionProjects/LabelRef/BBSinBoolean.h">
+			<Option target="LabelRef"/>
+		</Unit>
 		<Unit filename="/Users/liangxudong/CLionProjects/LabelRef/LabelRefwithClass.h">
 			<Option target="LabelRef"/>
 		</Unit>

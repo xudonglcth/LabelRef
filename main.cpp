@@ -1,7 +1,8 @@
 #include <iostream>
 #include "ReadVLTS.h"
 #include "LabelRefwithClass.h"
-
+#include "BBSinBoolean.h"
+#include <tuple>
 void testPerformance(const std::string& testCase);
 
 int main() {
@@ -144,18 +145,22 @@ int main() {
         }
         std::cout << "\n" << std::endl;
     }
+     */
     //test G16b from Matlab
     {
         std::cout<<"Test G16b"<<std::endl;
-        state state_g16b = {0, 1, 2, 3, 4};
-        transition trans_g16b = {{0, 1, 1},
-                                 {1, 0, 2},
-                                 {2, 0, 2},
-                                 {0, 0, 3},
-                                 {3, 0, 4},
-                                 {4, 0, 4}};
-        partition res_g16b = ts_reduce(state_g16b, trans_g16b);
-        for (auto j : res_g16b) {
+        state state_g16b = {1, 2, 3, 4, 5};
+        transition trans_g16b = {{1, 2, 2},
+                                 {2, 1, 3},
+                                 {3, 1, 3},
+                                 {1, 1, 4},
+                                 {4, 1, 5},
+                                 {5, 1, 5}};
+        BBSBool g16b;
+        g16b.X = state_g16b;
+        g16b.T = trans_g16b;
+        g16b.BBSinBool();
+        for (auto j : g16b.Pi) {
             std::cout << j << " ";
         }
         std::cout<<"\n"<<std::endl;
@@ -164,16 +169,19 @@ int main() {
     //test G23 from Matlab
     {
         std::cout<<"Test G23"<<std::endl;
-        state state_g23 = {0, 1, 2, 3};
-        transition trans_g23 = {{0, 0, 1},
-                                {0, 0, 2},
-                                {0, 9, 3},
-                                {2, 9, 3},
-                                {3, 0, 1},
-                                {3, 0, 0},
-                                {1, 9, 1}};
-        partition res_g23 = ts_reduce(state_g23, trans_g23);
-        for (auto j : res_g23) {
+        state state_g23 = {1, 2, 3, 4};
+        transition trans_g23 = {{1, 1, 2},
+                                {1, 1, 3},
+                                {1, 2, 4},
+                                {3, 2, 4},
+                                {4, 1, 2},
+                                {4, 1, 1},
+                                {2, 2, 2}};
+        BBSBool G23;
+        G23.X = state_g23;
+        G23.T = trans_g23;
+        G23.BBSinBool();
+        for (auto j : G23.Pi) {
             std::cout << j << " ";
         }
         std::cout << "\n" << std::endl;
@@ -182,26 +190,29 @@ int main() {
     //test G25 from Matlab
     {
         std::cout<<"Test G25"<<std::endl;
-        state state_g25 = {0, 1, 2, 3, 4, 5, 6};
-        transition trans_g25 = {{0, 0, 1},
-                                {1, 0, 2},
-                                {0, 2, 2},
-                                {2, 0, 3},
+        state state_g25 = {1, 2, 3, 4, 5, 6, 7};
+        transition trans_g25 = {{1, 1, 2},
+                                {2, 1, 3},
+                                {1, 3, 3},
                                 {3, 1, 4},
-                                {4, 0, 5},
+                                {4, 2, 5},
                                 {5, 1, 6},
-                                {3, 3, 6},
-                                {6, 2, 6}};
-        partition res_g25 = ts_reduce(state_g25, trans_g25);
-        for (auto j : res_g25) {
+                                {6, 2, 7},
+                                {4, 4, 7},
+                                {7, 3, 7}};
+        BBSBool g25;
+        g25.X = state_g25;
+        g25.T = trans_g25;
+        g25.BBSinBool();
+        for (auto j : g25.Pi) {
             std::cout << j << " ";
         }
         std::cout << "\n" << std::endl;
     }
-*/
+/*
     {
         testPerformance("vasy_40_60");
-    }
+    }*/
     return 0;
 }
 
