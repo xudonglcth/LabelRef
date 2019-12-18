@@ -4,7 +4,7 @@
 #include "BBSinBoolean.h"
 #include <tuple>
 void testPerformance(const std::string& testCase);
-
+void testPerformanceBool(const std::string& testCase);
 int main() {
     /*
     //test 5
@@ -145,7 +145,7 @@ int main() {
         }
         std::cout << "\n" << std::endl;
     }
-     */
+
     //test G16b from Matlab
     {
         std::cout<<"Test G16b"<<std::endl;
@@ -209,10 +209,12 @@ int main() {
         }
         std::cout << "\n" << std::endl;
     }
-/*
+    */
+
     {
-        testPerformance("vasy_40_60");
-    }*/
+        testPerformanceBool("vasy_0_1");
+        testPerformance("cwi_3_14");
+    }
     return 0;
 }
 
@@ -223,6 +225,27 @@ void testPerformance(const std::string& testCase){
     clock_t t1 = clock();
     t.transSystemReduce();
     clock_t t2 = clock();
+    std::cout<<"Sigref: "<<std::endl;
     std::cout<<"State#: "<<*std::max_element(t.partitions.begin(), t.partitions.end()) + 1<<std::endl;
+    std::cout<<"Run Time: "<<(double)(t2 - t1) / CLOCKS_PER_SEC<<"s\n"<<std::endl;
+}
+
+void testPerformanceBool(const std::string& testCase){
+    BBSBool t;
+    t.X = std::get<0> (BigTest(testCase));
+    t.T = std::get<1> (BigTest(testCase));
+    for (auto &i : t.X){
+        i += 1;
+    }
+    for (auto &j : t.T){
+        for (auto &k : j){
+            k += 1;
+        }
+    }
+    clock_t t1 = clock();
+    t.BBSinBool();
+    clock_t t2 = clock();
+    std::cout<<"BBS in Boolean: "<<std::endl;
+    std::cout<<"State#: "<<*std::max_element(t.Pi.begin(), t.Pi.end())<<std::endl;
     std::cout<<"Run Time: "<<(double)(t2 - t1) / CLOCKS_PER_SEC<<"s\n"<<std::endl;
 }

@@ -43,7 +43,7 @@ public:
             for(auto current_trans : transitions){
                 size_t source = current_trans[0], event = current_trans[1], target = current_trans[2];
                 if (!(event == tau && partitions[source] == partitions[target])){
-                    labelInsert(source, event, partitions[target]);
+                    labelInsert_1(source, event, partitions[target]);
                 }
             }
 

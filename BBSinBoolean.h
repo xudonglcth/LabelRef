@@ -22,6 +22,7 @@ public:
         boolVec BivTarF = BivTarget;
         boolVec BD1;
         std::vector<size_t > zero3(n, 0);
+        boolVec subGamma(n, false);
         for (size_t i = 0; i < n; ++i){
             BF.push_back(false);
             nDeltaC.push_back(0);
@@ -43,7 +44,6 @@ public:
         }
         size_t iter = 0;
         do{
-            boolVec subGamma(n, false);
             std::vector<std::vector<bool> > gamma (n*T.size() + X.size(), subGamma);
             BivTarget = BivTarF;
             BTiv.clear(); Tv.clear();
