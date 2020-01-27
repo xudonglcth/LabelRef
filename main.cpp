@@ -2,6 +2,7 @@
 #include "ReadVLTS.h"
 #include "LabelRefwithClass.h"
 #include "BBSinBoolean.h"
+#include "sync.h"
 #include <tuple>
 void testPerformance(const std::string& testCase);
 void testPerformanceBool(const std::string& testCase);
@@ -212,8 +213,24 @@ int main() {
     */
 
     {
-        testPerformanceBool("vasy_0_1");
-        testPerformance("cwi_3_14");
+        //testPerformanceBool("vasy_0_1");
+        testPerformance("cwi_1_2");
+    }
+
+    {
+        Synchronization G;
+        G.delta1 = {{{0, 0}, {1}}, {{1, 1}, {2}}, {{2, 2}, {3}}, {{3, 3}, {4}}};
+        G.delta2 = {{{0, 4}, {1}}, {{1, 1}, {2}}, {{2, 4}, {3}}, {{3, 2}, {4}}};
+        G.sigma_f1 = {{0, {0}}, {1, {1}}, {2, {2}}, {3, {3}}, {4, {}}};
+        G.sigma_f2 = {{0, {4}}, {1, {1}}, {2, {4}}, {3, {2}}, {4, {}}};
+        G.sigma_1 = {0, 1, 2, 3};
+        G.sigma_2 = {1, 2, 4};
+        G.sigma_sb = {1, 3};
+        G.init_1 = {0};
+        G.init_2 = {0};
+
+        G.sync();
+
     }
     return 0;
 }

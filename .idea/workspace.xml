@@ -11,12 +11,17 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="159d8b81-865f-4435-a367-9878fef0f1b6" name="Default Changelist" comment="Added boolean implementation of BBS abstraction in the header &quot;BBSinBoolean&quot;, also tested it with several examples in main.cpp">
+    <list default="true" id="159d8b81-865f-4435-a367-9878fef0f1b6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/sync.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BBSinBoolean.h" beforeDir="false" afterPath="$PROJECT_DIR$/BBSinBoolean.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelRefwithClass.h" beforeDir="false" afterPath="$PROJECT_DIR$/LabelRefwithClass.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LabelRef.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LabelRef.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LabelRef.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LabelRef.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LabelRef.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LabelRef.dir/depend.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LabelRef.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LabelRef.dir/main.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/LabelRef" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/LabelRef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/LabelRef.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/LabelRef.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,7 +42,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -71,7 +76,20 @@
       <workItem from="1575967547171" duration="16640000" />
       <workItem from="1576075475090" duration="17991000" />
       <workItem from="1576518532414" duration="5549000" />
-      <workItem from="1576660183679" duration="518000" />
+      <workItem from="1576660183679" duration="3260000" />
+      <workItem from="1576699405841" duration="61000" />
+      <workItem from="1576857683720" duration="1523000" />
+      <workItem from="1577215366936" duration="238000" />
+      <workItem from="1577228212140" duration="369000" />
+      <workItem from="1578269321057" duration="8000" />
+      <workItem from="1578380853250" duration="5000" />
+      <workItem from="1578380999984" duration="2268000" />
+      <workItem from="1578667731477" duration="1233000" />
+      <workItem from="1579456352215" duration="209000" />
+      <workItem from="1579456605560" duration="81000" />
+      <workItem from="1579510370449" duration="1238000" />
+      <workItem from="1579616162808" duration="20000" />
+      <workItem from="1580110640509" duration="15072000" />
     </task>
     <task id="LOCAL-00001" summary="Changed the test case to vasy_25_25">
       <created>1576075563819</created>
@@ -94,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576518666029</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added performance test of BBSinBoolean.">
+      <created>1576660901528</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1576660901528</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,17 +152,7 @@
     <MESSAGE value="Changed the test case to vasy_25_25" />
     <MESSAGE value="Added a new version of labefRef function, avoided an assignment." />
     <MESSAGE value="Added boolean implementation of BBS abstraction in the header &quot;BBSinBoolean&quot;, also tested it with several examples in main.cpp" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added boolean implementation of BBS abstraction in the header &quot;BBSinBoolean&quot;, also tested it with several examples in main.cpp" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/main.cpp</url>
-          <line>205</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Added performance test of BBSinBoolean." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added performance test of BBSinBoolean." />
   </component>
 </project>

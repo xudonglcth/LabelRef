@@ -104,8 +104,7 @@ public:
                     subGammaT.push_back(j[i]);
                 }
                 if (gamma_map.find(subGammaT) == gamma_map.end()){
-                    count += 1;
-                    gamma_map[subGammaT] = count;
+                    gamma_map[subGammaT] = ++count;
                 }
                 hashKey.push_back(subGammaT);
                 subGammaT.clear();

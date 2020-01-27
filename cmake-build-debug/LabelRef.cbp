@@ -92,6 +92,9 @@
 		<Unit filename="/Users/liangxudong/CLionProjects/LabelRef/main.cpp">
 			<Option target="LabelRef"/>
 		</Unit>
+		<Unit filename="/Users/liangxudong/CLionProjects/LabelRef/sync.h">
+			<Option target="LabelRef"/>
+		</Unit>
 		<Unit filename="/Users/liangxudong/CLionProjects/LabelRef/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
