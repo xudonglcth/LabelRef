@@ -16,7 +16,6 @@
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LabelRef.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LabelRef.dir/main.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/LabelRef" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/LabelRef" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sync.h" beforeDir="false" afterPath="$PROJECT_DIR$/sync.h" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -84,7 +83,7 @@
       <workItem from="1579510370449" duration="1238000" />
       <workItem from="1579616162808" duration="20000" />
       <workItem from="1580110640509" duration="15486000" />
-      <workItem from="1580200349207" duration="10131000" />
+      <workItem from="1580200349207" duration="14705000" />
     </task>
     <task id="LOCAL-00001" summary="Changed the test case to vasy_25_25">
       <created>1576075563819</created>
@@ -121,7 +120,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580159139706</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Fixed a bug in sync class, and added test cases.">
+      <created>1580218730274</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1580218730274</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -156,7 +162,8 @@
     <MESSAGE value="Added boolean implementation of BBS abstraction in the header &quot;BBSinBoolean&quot;, also tested it with several examples in main.cpp" />
     <MESSAGE value="Added performance test of BBSinBoolean." />
     <MESSAGE value="Added Synchronization class and the first test case." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Synchronization class and the first test case." />
+    <MESSAGE value="Fixed a bug in sync class, and added test cases." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed a bug in sync class, and added test cases." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
