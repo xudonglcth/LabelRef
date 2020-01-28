@@ -38,10 +38,10 @@ public:
         setCrossProduct(init_1, init_2, X);
         delta_X.push_back(X);
         do{
-            set1.clear();set2.clear();set3.clear();
             ++k;
             delta_X.emplace_back();
             for (const auto& i : delta_X[k - 1]){
+                set1.clear();set2.clear();set3.clear();
                 sigma_f[i] = {};
 
                 //first for loop
@@ -154,7 +154,7 @@ public:
             }
         }while(! delta_X[k].empty());
         int a = 1;
-        std::cout<< "Finished" << std::endl;
+        std::cout<< "Finished!\n" << std::endl;
     }
 
     static void setCrossProduct(const std::set<size_t>& s1, const std::set<size_t>& s2, std::set<std::vector<size_t> > &s){
