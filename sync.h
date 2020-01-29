@@ -21,6 +21,7 @@ public:
     std::map<std::vector<size_t>, std::set<std::vector<size_t > > > delta;
     std::set<size_t> init_1, init_2;
     std::set<std::vector<size_t> > X;
+    std::map<std::vector<size_t >, size_t > newStates;
 
     void sync(){
         int k = 0;
@@ -58,24 +59,24 @@ public:
                     delta_key = {i[0], i[1], a};
                     delta_val.clear();
                     setCrossProduct(delta1[{i[0], a}], delta2[{i[1], a}], delta_val);
-                    for (auto ele : delta_key){
-                        std::cout << ele << " ";
-                    }
+                    //for (auto ele : delta_key){
+                    //    std::cout << ele << " ";
+                    //}
                     //std::cout << std::endl;
                     if (delta[delta_key].empty()){
                         delta[delta_key] = delta_val;
                     }
                     else{
-                        for (auto ele : delta_val){
+                        for (const auto& ele : delta_val){
                             delta[delta_key].insert(ele);
                         }
                     }
                     for (const auto& val:delta_val){
-                        std::cout << std::endl;
-                        for (auto ele: val){
-                            std::cout << ele << " ";
-                        }
-                        std::cout << '\n'<<std::endl;
+                    //    std::cout << std::endl;
+                    //    for (auto ele: val){
+                    //        std::cout << ele << " ";
+                    //    }
+                    //    std::cout << '\n'<<std::endl;
                         delta_X[k].insert(val);
                     }
                 }
@@ -95,20 +96,20 @@ public:
                         delta[delta_key] = delta_val;
                     }
                     else{
-                        for (auto ele : delta_val){
+                        for (const auto& ele : delta_val){
                             delta[delta_key].insert(ele);
                         }
                     }
-                    for (auto ele : delta_key){
-                        std::cout << ele << " ";
-                    }
+                    //for (auto ele : delta_key){
+                    //    std::cout << ele << " ";
+                    //}
                     //std::cout << std::endl;
                     for (const auto& val:delta_val){
-                        std::cout << std::endl;
-                        for (auto ele: val){
-                            std::cout << ele << " ";
-                        }
-                        std::cout << '\n'<<std::endl;
+                        //std::cout << std::endl;
+                        //for (auto ele: val){
+                        //    std::cout << ele << " ";
+                        //}
+                        //std::cout << '\n'<<std::endl;
                         delta_X[k].insert(val);
                     }
                 }
@@ -128,20 +129,22 @@ public:
                         delta[delta_key] = delta_val;
                     }
                     else{
-                        for (auto ele : delta_val){
+                        for (const auto& ele : delta_val){
                             delta[delta_key].insert(ele);
                         }
                     }
-                    for (auto ele : delta_key){
-                        std::cout << ele << " ";
-                    }
+                    //for (auto ele : delta_key){
+                    //    std::cout << ele << " ";
+                    //}
                     //std::cout << std::endl;
                     for (const auto& val:delta_val){
+                        /*
                         std::cout << std::endl;
                         for (auto ele: val){
                             std::cout << ele << " ";
                         }
                         std::cout << '\n'<<std::endl;
+                        */
                         delta_X[k].insert(val);
                     }
                 }
@@ -149,12 +152,12 @@ public:
             for (const auto& ele: X){
                 delta_X[k].erase(ele);
             }
-            for (auto ele : delta_X[k]){
+            for (const auto& ele : delta_X[k]){
                 X.insert(ele);
             }
         }while(! delta_X[k].empty());
-        int a = 1;
-        std::cout<< "Finished!\n" << std::endl;
+        delta2trans();
+        //std::cout<< "Finished!\n" << std::endl;
     }
 
     static void setCrossProduct(const std::set<size_t>& s1, const std::set<size_t>& s2, std::set<std::vector<size_t> > &s){
@@ -166,6 +169,33 @@ public:
         }
     }
 
+     void delta2trans(){
+        size_t cnt = 0, a, t, b;
+        std::vector<std::vector<size_t >> trans;
+
+        for (const auto& i: delta){
+            if (! newStates[{i.first[0], i.first[1]}]){
+                newStates[{i.first[0], i.first[1]}] = ++cnt;
+            }
+            a = newStates[{i.first[0], i.first[1]}];
+            t = i.first[2];
+            for (const auto& j : i.second){
+                if (! newStates[{j[0], j[1]}]){
+                    newStates[{j[0], j[1]}] = ++cnt;
+                }
+                b = newStates[{j[0], j[1]}];
+                trans.push_back({a, t, b});
+            }
+        }
+        /*
+        for (const auto& i : trans){
+            for (const auto& j : i){
+                std::cout << j << " ";
+            }
+            std::cout << std::endl;
+        }
+        */
+    }
 };
 
 #endif /* synchronous_composition_h */

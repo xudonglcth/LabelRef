@@ -378,8 +378,15 @@ int main() {
         G12.init_1 = {3};
         G12.init_2 = {2, 4};
         std::cout << "G12\n" << std::endl;
-        G12.sync();
+        clock_t t1 = clock();
+        for (int i = 0; i < 10000; ++i){
+            G12.sync();
+        }
+        clock_t t2 = clock();
+        std::cout<<"Run Time: "<<(double)(t2 - t1) / CLOCKS_PER_SEC<<"s\n"<<std::endl;
+
     }
+
     return 0;
 }
 
