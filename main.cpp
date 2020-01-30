@@ -6,6 +6,7 @@
 #include <tuple>
 void testPerformance(const std::string& testCase);
 void testPerformanceBool(const std::string& testCase);
+void bbsTest(LabelRef G);
 int main() {
     /*
     //test 5
@@ -187,7 +188,156 @@ int main() {
         }
         std::cout << "\n" << std::endl;
     }
+     */
 
+     {
+         //test G16
+         std::cout << "Test G16" << std::endl;
+         state state_g16 = {0, 1, 2, 3, 4};
+         transition trans_g16 = {{0, 2, 1},
+                                 {1, 1, 2},
+                                 {2, 1, 2},
+                                 {0, 1, 3},
+                                 {3, 1, 4},
+                                 {4, 1, 4}};
+         std::vector<size_t > partitions_new_g16 = {2, 2, 2, 1, 1};
+         LabelRef G16(state_g16, trans_g16, partitions_new_g16, 1);
+         bbsTest(G16);
+         //test G17
+         std::cout << "Test G17" << std::endl;
+         state state_g17 = {0, 1, 2};
+         transition trans_g17 = {{0, 1, 1},
+                                 {0, 1, 2},
+                                 {1, 2, 1},
+                                 {2, 3, 2}};
+         std::vector<size_t> partitions_new_17 = {};
+         LabelRef G17(state_g17, trans_g17, partitions_new_17, 1);
+         G17.transSystemReduce();
+         for (const auto& i : G17.partitions_new){
+             std::cout << i << " ";
+         }
+         std::cout<< std::endl;
+         //test G18
+         std::cout << "Test G18" << std::endl;
+         state state_g18 = {0, 1, 2};
+         transition trans_g18 = {{0, 1, 1},
+                                 {1, 2, 2},
+                                 {0, 2, 2}};
+         std::vector<size_t> partitions_new_18 = {};
+         LabelRef G18(state_g18, trans_g18, partitions_new_18, 1);
+         G18.transSystemReduce();
+         for (const auto& i : G18.partitions_new){
+             std::cout << i << " ";
+         }
+         std::cout<< std::endl;
+         //test G19
+         std::cout << "Test G19" << std::endl;
+         state state_g19 = {0, 1, 2, 3};
+         transition trans_g19 = {{0, 1, 1},
+                                 {1, 2, 2},
+                                 {0, 2, 2},
+                                 {0, 1, 3},
+                                 {2, 1, 3},
+                                 {3, 2, 3}};
+         std::vector<size_t> partitions_new_19 = {2, 2, 2, 1};
+         LabelRef G19(state_g19, trans_g19, partitions_new_19, 1);
+         G19.transSystemReduce();
+         for (const auto& i : G19.partitions_new){
+             std::cout << i << " ";
+         }
+         std::cout<< std::endl;
+         //test G20 from Matlab
+         std::cout << "Test G20" << std::endl;
+         state state_g20 = {0, 1, 2, 3, 4 ,5 ,6, 7, 8};
+         transition trans_g20 = {{0, 2, 1},
+                                 {0, 3, 2},
+                                 {1, 4, 3},
+                                 {1, 4, 4},
+                                 {1, 4, 5},
+                                 {2, 4, 6},
+                                 {2, 4, 7},
+                                 {2, 4, 8},
+                                 {3, 5, 3},
+                                 {4, 5, 4},
+                                 {5, 5, 5},
+                                 {6, 5, 6},
+                                 {7, 5, 7},
+                                 {8, 5, 8}};
+         std::vector<size_t> partitions_new_20 = {4, 4, 4, 1, 1, 2, 1, 2, 2};
+         LabelRef G20(state_g20, trans_g20, partitions_new_20, 1);
+         G20.transSystemReduce();
+         for (const auto& i : G20.partitions_new){
+             std::cout << i << " ";
+         }
+         std::cout<< std::endl;
+         //test G21 from Matlab
+         std::cout<<"Test G21"<<std::endl;
+         state state_g21 = {0, 1, 2, 3};
+         transition trans_g21 = {{0, 1, 1},
+                                 {0, 2, 3},
+                                 {0, 1, 2},
+                                 {1, 2, 1},
+                                 {1, 2, 3},
+                                 {2, 2, 2},
+                                 {3, 1, 0},
+                                 {3, 1, 2}};
+         std::vector<size_t> partitions_new_21 = {2, 2, 1, 2};
+         LabelRef G21;
+         G21.states = state_g21;
+         G21.transitions = trans_g21;
+         G21.partitions_new = partitions_new_21;
+         G21.tau = 1;
+         G21.transSystemReduce();
+         for (const auto& i : G21.partitions_new){
+             std::cout << i << " ";
+         }
+         std::cout<< std::endl;
+
+         //test G22 from Matlab
+         std::cout<<"Test G22"<<std::endl;
+         state state_g22 = {0, 1, 2, 3, 4};
+         transition trans_g22 = {{0, 5, 1},
+                                 {1, 0, 2},
+                                 {1, 0, 3},
+                                 {1, 10, 4},
+                                 {3, 10, 4},
+                                 {4, 0, 2},
+                                 {4, 0, 0},
+                                 {2, 10, 2}};
+         std::vector<size_t> partitions_new_22 = {2, 2, 1, 2, 2};
+         LabelRef G22;
+         G22.states = state_g22;
+         G22.transitions = trans_g22;
+         G22.partitions_new = partitions_new_22;
+         G22.transSystemReduce();
+         for (const auto& i : G22.partitions_new){
+             std::cout << i << " ";
+         }
+         std::cout<< std::endl;
+
+         //test G24 from Matlab
+         std::cout<<"Test G24"<<std::endl;
+         state state_g24 = {0, 1, 2, 3, 4, 5, 6};
+         transition trans_g25 = {{0, 0, 1},
+                                 {1, 0, 2},
+                                 {2, 0, 3},
+                                 {3, 1, 3},
+                                 {1, 0, 4},
+                                 {4, 0, 5},
+                                 {5, 0, 6},
+                                 {6, 1, 6}};
+         std::vector<size_t> partitions_new_25 = {2, 2, 2, 2, 2, 1, 1};
+         LabelRef G24;
+         G24.states = state_g24;
+         G24.transitions = trans_g25;
+         G24.partitions_new = partitions_new_25;
+         G24.transSystemReduce();
+         for (const auto& i : G24.partitions_new){
+             std::cout << i << " ";
+         }
+         std::cout<< std::endl;
+     }
+     /*
     //test G25 from Matlab
     {
         std::cout<<"Test G25"<<std::endl;
@@ -214,9 +364,11 @@ int main() {
 
     {
         //testPerformanceBool("vasy_0_1");
-        //testPerformance("cwi_1_2");
+        testPerformance("vasy_18_73");
     }
 
+    //sync test
+    /*
     {
         Synchronization G0;
         G0.delta1 = {{{0, 0}, {1}}, {{1, 1}, {2}}, {{2, 2}, {3}}, {{3, 3}, {4}}};
@@ -386,7 +538,7 @@ int main() {
         std::cout<<"Run Time: "<<(double)(t2 - t1) / CLOCKS_PER_SEC<<"s\n"<<std::endl;
 
     }
-
+*/
     return 0;
 }
 
@@ -398,7 +550,7 @@ void testPerformance(const std::string& testCase){
     t.transSystemReduce();
     clock_t t2 = clock();
     std::cout<<"Sigref: "<<std::endl;
-    std::cout<<"State#: "<<*std::max_element(t.partitions.begin(), t.partitions.end()) + 1<<std::endl;
+    std::cout<<"State#: "<<*std::max_element(t.partitions_new.begin(), t.partitions_new.end()) + 1<<std::endl;
     std::cout<<"Run Time: "<<(double)(t2 - t1) / CLOCKS_PER_SEC<<"s\n"<<std::endl;
 }
 
@@ -420,4 +572,12 @@ void testPerformanceBool(const std::string& testCase){
     std::cout<<"BBS in Boolean: "<<std::endl;
     std::cout<<"State#: "<<*std::max_element(t.Pi.begin(), t.Pi.end())<<std::endl;
     std::cout<<"Run Time: "<<(double)(t2 - t1) / CLOCKS_PER_SEC<<"s\n"<<std::endl;
+}
+
+void bbsTest(LabelRef G){
+    G.transSystemReduce();
+    for (const auto& i : G.partitions_new){
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
 }

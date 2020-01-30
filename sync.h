@@ -105,11 +105,11 @@ public:
                     //}
                     //std::cout << std::endl;
                     for (const auto& val:delta_val){
-                        //std::cout << std::endl;
-                        //for (auto ele: val){
-                        //    std::cout << ele << " ";
-                        //}
-                        //std::cout << '\n'<<std::endl;
+                    //    std::cout << std::endl;
+                    //    for (auto ele: val){
+                    //        std::cout << ele << " ";
+                    //    }
+                    //    std::cout << '\n'<<std::endl;
                         delta_X[k].insert(val);
                     }
                 }
@@ -138,13 +138,11 @@ public:
                     //}
                     //std::cout << std::endl;
                     for (const auto& val:delta_val){
-                        /*
-                        std::cout << std::endl;
-                        for (auto ele: val){
-                            std::cout << ele << " ";
-                        }
-                        std::cout << '\n'<<std::endl;
-                        */
+                    //    std::cout << std::endl;
+                    //    for (auto ele: val){
+                    //        std::cout << ele << " ";
+                    //    }
+                    //    std::cout << '\n'<<std::endl;
                         delta_X[k].insert(val);
                     }
                 }
@@ -174,14 +172,14 @@ public:
         std::vector<std::vector<size_t >> trans;
 
         for (const auto& i: delta){
-            if (! newStates[{i.first[0], i.first[1]}]){
-                newStates[{i.first[0], i.first[1]}] = ++cnt;
+            if(newStates.find({i.first[0], i.first[1]}) == newStates.end()){
+                newStates[{i.first[0], i.first[1]}] = cnt++;
             }
             a = newStates[{i.first[0], i.first[1]}];
             t = i.first[2];
             for (const auto& j : i.second){
-                if (! newStates[{j[0], j[1]}]){
-                    newStates[{j[0], j[1]}] = ++cnt;
+                if (newStates.find({j[0], j[1]}) == newStates.end()){
+                    newStates[{j[0], j[1]}] = cnt++;
                 }
                 b = newStates[{j[0], j[1]}];
                 trans.push_back({a, t, b});

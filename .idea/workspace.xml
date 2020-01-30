@@ -11,8 +11,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="159d8b81-865f-4435-a367-9878fef0f1b6" name="Default Changelist" comment="">
+    <list default="true" id="159d8b81-865f-4435-a367-9878fef0f1b6" name="Default Changelist" comment="updated the sigref function, now supports initial blocks">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelRefwithClass.h" beforeDir="false" afterPath="$PROJECT_DIR$/LabelRefwithClass.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LabelRef.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LabelRef.dir/main.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/LabelRef" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/LabelRef" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
@@ -85,7 +86,7 @@
       <workItem from="1579616162808" duration="20000" />
       <workItem from="1580110640509" duration="15486000" />
       <workItem from="1580200349207" duration="15391000" />
-      <workItem from="1580287901404" duration="11009000" />
+      <workItem from="1580287901404" duration="26411000" />
     </task>
     <task id="LOCAL-00001" summary="Changed the test case to vasy_25_25">
       <created>1576075563819</created>
@@ -136,7 +137,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580224233719</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="delta to trans function added and tested, able to output the standard form of transitions(std::vector&lt;std::vector&lt;size_t&gt; &gt;)">
+      <created>1580309386405</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1580309386405</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,17 +181,7 @@
     <MESSAGE value="Added Synchronization class and the first test case." />
     <MESSAGE value="Fixed a bug in sync class, and added test cases." />
     <MESSAGE value="Added all 12 + 1 test cases for the sync class." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added all 12 + 1 test cases for the sync class." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/main.cpp</url>
-          <line>296</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="delta to trans function added and tested, able to output the standard form of transitions(std::vector&lt;std::vector&lt;size_t&gt; &gt;)" />
+    <option name="LAST_COMMIT_MESSAGE" value="delta to trans function added and tested, able to output the standard form of transitions(std::vector&lt;std::vector&lt;size_t&gt; &gt;)" />
   </component>
 </project>

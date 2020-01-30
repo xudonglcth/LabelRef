@@ -16,19 +16,26 @@ class LabelRef {
 public:
     state states;
     transition transitions;
+    std::vector<size_t> partitions_new;
+    int tau = 0;
+    LabelRef() = default;
+    LabelRef(state &s, transition &t, std::vector<size_t > &p, int tau_)
+            :
+            states(s), transitions(t), partitions_new(p), tau(tau_) {}
+private:
     trans_per_state inTransPerState;
     bound lower_bound, upper_bound;
     std::vector<std::set<std::pair<size_t, size_t>>> label;
     std::vector<size_t > partitions;
-    int tau = 0;
+public:
     void transSystemReduce(){
         size_t n = states.size(), count;
-        std::vector<size_t > partitions_new;
-        std::map<std::set<std::pair<size_t , size_t >>, size_t > hashtable;
+        std::map<std::pair<size_t, std::set<std::pair<size_t , size_t >>>, size_t > hashtable;
         Boundaries();
-
-        for(size_t i = 0; i < n; i++){
-            partitions_new.push_back(0);
+        if (partitions_new.empty()){
+            for(size_t i = 0; i < n; i++){
+                partitions_new.push_back(0);
+            }
         }
 
         do{
@@ -43,21 +50,23 @@ public:
             for(auto current_trans : transitions){
                 size_t source = current_trans[0], event = current_trans[1], target = current_trans[2];
                 if (!(event == tau && partitions[source] == partitions[target])){
-                    labelInsert_1(source, event, partitions[target]);
+                    labelInsert(source, event, partitions[target]);
                 }
             }
 
             for (auto current_state : states){
-                if(hashtable.find(label[current_state]) == hashtable.end()){
-                    hashtable[label[current_state]] = count;
+                if(hashtable.find(std::make_pair(partitions[current_state], label[current_state])) == hashtable.end()){
+                    hashtable[std::make_pair(partitions[current_state], label[current_state])] = count;
                     count++;
                 }
             }
 
             for (auto current_state : states){
-                partitions_new[current_state] = hashtable[label[current_state]];
+                partitions_new[current_state] = hashtable[std::make_pair(partitions[current_state], label[current_state])];
             }
         }while(partitions_new != partitions);
+        int a = 0;
+        std::cout << "Finsished!" << std::endl;
     }
 
     void Boundaries(){
@@ -114,3 +123,4 @@ public:
 
 
 #endif //LABELREF_LABELREFWITHCLASS_H
+
