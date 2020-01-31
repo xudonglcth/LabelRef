@@ -188,7 +188,7 @@ int main() {
         }
         std::cout << "\n" << std::endl;
     }
-     */
+
 
      {
          //test G16
@@ -337,7 +337,7 @@ int main() {
          }
          std::cout<< std::endl;
      }
-     /*
+
     //test G25 from Matlab
     {
         std::cout<<"Test G25"<<std::endl;

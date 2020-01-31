@@ -66,9 +66,11 @@ public:
             }
         }while(partitions_new != partitions);
         int a = 0;
-        std::cout << "Finsished!" << std::endl;
+        result();
+        //std::cout << "Finsished!" << std::endl;
     }
 
+private:
     void Boundaries(){
         for(size_t i = 0; i < states.size(); i++){
             lower_bound.push_back(0);
@@ -117,6 +119,35 @@ public:
                 }
             }
         }
+    }
+
+    void result(){
+        transition transitions_pi;
+        for (const auto& iter : transitions){
+            if (!(partitions[iter[0]] == partitions[iter[2]] && iter[1] == 0)){
+                transitions_pi.push_back({partitions[iter[0]], iter[1], partitions[iter[2]]});
+            }
+        }
+        int cnt = 0;
+        std::set<std::vector<size_t >> s(transitions_pi.begin(), transitions_pi.end());
+        int flag = 1;
+        for (auto & iter : s){
+            if (iter[0] == iter[2] && iter[1] == 0){
+                ++cnt;
+            }
+        }
+
+        std::cout << "transitions#: " << s.size()<<std::endl;
+    /*
+        for (const auto &i : s){
+            for (const auto &j : i){
+                std::cout << j << " ";
+            }
+            std::cout << std::endl;
+        }
+
+        std::cout << "all zero:"<< cnt << std::endl;
+*/
     }
 };
 
