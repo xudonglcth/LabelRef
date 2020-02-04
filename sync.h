@@ -11,6 +11,8 @@
 #include <vector>
 #include <set>
 #include <map>
+#include "dinningPhilosophers.h"
+
 class Synchronization{
 public:
     std::set<size_t > sigma_1, sigma_2;
@@ -22,8 +24,21 @@ public:
     std::set<size_t> init_1, init_2;
     std::set<std::vector<size_t> > X;
     std::map<std::vector<size_t >, size_t > newStates;
-
-    void sync(){
+    //Result:
+    System::sigma sigmaG;
+    System::sigmaf sigmaF;
+    System::delta d;
+    System::init initR = {0};
+    Synchronization(const System& G1, const System& G2)
+    :
+    sigma_1(G1.sigmaG), sigma_2(G2.sigmaG), sigma_f1(G1.sigma_f), sigma_f2(G2.sigma_f),
+    delta1(G1.d), delta2(G2.d), init_1(G1.init1), init_2(G2.init1)
+    {
+        std::set_intersection(G1.sigmaG.begin(), G1.sigmaG.end(),
+                G2.sigmaG.begin(), G2.sigmaG.end(),
+                std::inserter(sigma_sb, sigma_sb.begin()));
+    }
+    Synchronization& sync(){
         int k = 0;
         std::vector<std::set<std::vector<size_t >>> delta_X;
         std::set<size_t > sigma_il = sigma_1;
@@ -155,6 +170,7 @@ public:
             }
         }while(! delta_X[k].empty());
         delta2trans();
+        return *this;
         //std::cout<< "Finished!\n" << std::endl;
     }
 
@@ -171,6 +187,7 @@ public:
         size_t cnt = 0, a, t, b;
         std::vector<std::vector<size_t >> trans;
 
+
         for (const auto& i: delta){
             if(newStates.find({i.first[0], i.first[1]}) == newStates.end()){
                 newStates[{i.first[0], i.first[1]}] = cnt++;
@@ -185,14 +202,28 @@ public:
                 trans.push_back({a, t, b});
             }
         }
-        /*
+
         for (const auto& i : trans){
+            sigmaG.insert(i[1]);
+            if(sigmaF[{i[0]}].empty()){
+                sigmaF[{i[0]}] = {i[1]};
+            }
+            else{
+                sigmaF[{i[0]}].insert({i[1]});
+            }
+            if(d[{i[0], i[1]}].empty()){
+                d[{i[0], i[1]}] = {i[2]};
+            }
+            else{
+                d[{i[0], i[1]}].insert({i[2]});
+            }
             for (const auto& j : i){
                 std::cout << j << " ";
             }
             std::cout << std::endl;
         }
-        */
+         std::cout <<"Trans#: " << trans.size() << "  State#: " << newStates.size() <<std::endl;
+         std::cout << "Finished!\n" << std::endl;
     }
 };
 

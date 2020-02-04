@@ -123,23 +123,46 @@ private:
 
     void result(){
         transition transitions_pi;
-        for (const auto& iter : transitions){
-            if (!(partitions[iter[0]] == partitions[iter[2]] && iter[1] == 0)){
-                transitions_pi.push_back({partitions[iter[0]], iter[1], partitions[iter[2]]});
+        std::set<std::vector<size_t> > s2;
+        std::set<std::vector<size_t> > s1;
+        int i = 2;
+        //approach 1: vector to set, using constructor
+        switch(i) {
+            case 1: {
+                for (const auto &iter : transitions) {
+                    if (!(partitions[iter[0]] == partitions[iter[2]] && iter[1] == 0)) {
+                        transitions_pi.push_back({partitions[iter[0]], iter[1], partitions[iter[2]]});
+                    }
+                }
+                std::set<std::vector<size_t> > s1(transitions_pi.begin(), transitions_pi.end());
+                break;
+            }
+
+
+                //approach 2: manually building the set
+            case 2: {
+                for (const auto &iter : transitions) {
+                    if (!(partitions[iter[0]] == partitions[iter[2]] && iter[1] == 0)) {
+                        s2.insert({partitions[iter[0]], iter[1], partitions[iter[2]]});
+                    }
+                }
+                int flag = 1;
+                break;
             }
         }
-        int cnt = 0;
-        std::set<std::vector<size_t >> s(transitions_pi.begin(), transitions_pi.end());
-        int flag = 1;
-        for (auto & iter : s){
+        //approach 3: vector unique
+        // 略
+        /*
+        for (auto & iter : s1){
             if (iter[0] == iter[2] && iter[1] == 0){
                 ++cnt;
             }
         }
 
-        std::cout << "transitions#: " << s.size()<<std::endl;
+        */
+        std::cout << "transitions#: " << s2.size()<<std::endl;
     /*
-        for (const auto &i : s){
+        for (const auto &i : s1){
             for (const auto &j : i){
                 std::cout << j << " ";
             }

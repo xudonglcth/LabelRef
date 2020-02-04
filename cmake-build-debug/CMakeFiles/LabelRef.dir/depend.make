@@ -4,6 +4,7 @@
 CMakeFiles/LabelRef.dir/main.cpp.o: ../BBSinBoolean.h
 CMakeFiles/LabelRef.dir/main.cpp.o: ../LabelRefwithClass.h
 CMakeFiles/LabelRef.dir/main.cpp.o: ../ReadVLTS.h
+CMakeFiles/LabelRef.dir/main.cpp.o: ../dinningPhilosophers.h
 CMakeFiles/LabelRef.dir/main.cpp.o: ../main.cpp
 CMakeFiles/LabelRef.dir/main.cpp.o: ../sync.h
 

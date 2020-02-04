@@ -4,6 +4,7 @@
 #include "BBSinBoolean.h"
 #include "sync.h"
 #include <tuple>
+void diningPhilosophersSync(int n);
 void testPerformance(const std::string& testCase);
 void testPerformanceBool(const std::string& testCase);
 void bbsTest(LabelRef G);
@@ -364,7 +365,7 @@ int main() {
 
     {
         //testPerformanceBool("vasy_0_1");
-        testPerformance("vasy_18_73");
+        //testPerformance("vasy_18_73");
     }
 
     //sync test
@@ -539,6 +540,10 @@ int main() {
 
     }
 */
+     //dinningP
+     {
+         diningPhilosophersSync(4);
+     }
     return 0;
 }
 
@@ -581,3 +586,20 @@ void bbsTest(LabelRef G){
     }
     std::cout << std::endl;
 }
+
+void diningPhilosophersSync(int n){
+    std::vector<System> GL = System::constructG(n)[0];
+    std::vector<System> RL = System::constructG(n)[1];
+    std::vector<System> LL;
+    for(int i = 0; i != n; ++i){
+        LL.push_back(GL[i]);
+        LL.push_back(RL[i]);
+    }
+    System G(GL[0].d, GL[0].sigma_f, GL[0].sigmaG, GL[0].init1);
+    for (int i = 1; i != LL.size(); ++i){
+        std::cout << "Sync#: " << i << std::endl;
+        Synchronization p(G, LL[i]);
+        p.sync();
+        G.d = p.d; G.sigma_f = p.sigmaF; G.sigmaG = p.sigmaG; G.init1 = p.initR;
+    }
+ }

@@ -89,6 +89,9 @@
 		<Unit filename="/Users/liangxudong/CLionProjects/LabelRef/ReadVLTS.h">
 			<Option target="LabelRef"/>
 		</Unit>
+		<Unit filename="/Users/liangxudong/CLionProjects/LabelRef/dinningPhilosophers.h">
+			<Option target="LabelRef"/>
+		</Unit>
 		<Unit filename="/Users/liangxudong/CLionProjects/LabelRef/main.cpp">
 			<Option target="LabelRef"/>
 		</Unit>

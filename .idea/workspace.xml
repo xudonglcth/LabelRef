@@ -12,11 +12,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="159d8b81-865f-4435-a367-9878fef0f1b6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/dinningPhilosophers.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LabelRefwithClass.h" beforeDir="false" afterPath="$PROJECT_DIR$/LabelRefwithClass.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LabelRef.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LabelRef.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LabelRef.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LabelRef.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LabelRef.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LabelRef.dir/depend.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LabelRef.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LabelRef.dir/main.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/LabelRef" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/LabelRef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/LabelRef.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/LabelRef.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync.h" beforeDir="false" afterPath="$PROJECT_DIR$/sync.h" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -87,6 +94,9 @@
       <workItem from="1580200349207" duration="15391000" />
       <workItem from="1580287901404" duration="28576000" />
       <workItem from="1580467892011" duration="7753000" />
+      <workItem from="1580509724339" duration="1204000" />
+      <workItem from="1580641546266" duration="6477000" />
+      <workItem from="1580722055624" duration="30466000" />
     </task>
     <task id="LOCAL-00001" summary="Changed the test case to vasy_25_25">
       <created>1576075563819</created>
@@ -151,7 +161,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580421729411</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="updated labelref function, now abstracted states and transitions added.&#10;Two other ways to be compared(manually insert and vector unique).">
+      <created>1580510059431</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1580510059431</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,6 +207,8 @@
     <MESSAGE value="Added all 12 + 1 test cases for the sync class." />
     <MESSAGE value="delta to trans function added and tested, able to output the standard form of transitions(std::vector&lt;std::vector&lt;size_t&gt; &gt;)" />
     <MESSAGE value="updated the sigref function, now initial blocks supported" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated the sigref function, now initial blocks supported" />
+    <MESSAGE value="updated labelref function, now abstracted states and transitions added." />
+    <MESSAGE value="updated labelref function, now abstracted states and transitions added.&#10;Two other ways to be compared(manually insert and vector unique)." />
+    <option name="LAST_COMMIT_MESSAGE" value="updated labelref function, now abstracted states and transitions added.&#10;Two other ways to be compared(manually insert and vector unique)." />
   </component>
 </project>
