@@ -365,7 +365,7 @@ int main() {
 
     {
         //testPerformanceBool("vasy_0_1");
-        //testPerformance("vasy_18_73");
+        //testPerformance("vasy_10_56");
     }
 
     //sync test
@@ -603,3 +603,32 @@ void diningPhilosophersSync(int n){
         G.d = p.d; G.sigma_f = p.sigmaF; G.sigmaG = p.sigmaG; G.init1 = p.initR;
     }
  }
+
+ void SyncAndAbstract(size_t n){
+     std::vector<System> GL = System::constructG(n)[0];
+     std::vector<System> RL = System::constructG(n)[1];
+     std::vector<System> LL;
+     for(size_t i = 0; i != n; ++i){
+         LL.push_back(GL[i]);
+         LL.push_back(RL[i]);
+     }
+     System G(GL[0].d, GL[0].sigma_f, GL[0].sigmaG, GL[0].init1);
+     LabelRef GFirst2;
+     //First step: sync first two G and two R, the result is stored in p.
+     for (int i = 1; i != 4; ++i){
+         std::cout << "Sync#: " << i << std::endl;
+         Synchronization p(G, LL[i]);
+         p.sync();
+         G.d = p.d; G.sigma_f = p.sigmaF; G.sigmaG = p.sigmaG; G.init1 = p.initR;
+         if (i == 3){
+             GFirst2.states = p.states;
+             GFirst2.transitions = p.trans;
+             GFirst2.tau = {2, n + 2};
+             std::vector<size_t > pi(0, p.states.size());
+             GFirst2.partitions_new = pi;
+         }
+     }
+
+     GFirst2.transSystemReduce();
+
+}

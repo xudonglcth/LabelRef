@@ -29,6 +29,8 @@ public:
     System::sigmaf sigmaF;
     System::delta d;
     System::init initR = {0};
+    std::vector<std::vector<size_t>> trans;
+    std::vector<size_t> states;
     Synchronization(const System& G1, const System& G2)
     :
     sigma_1(G1.sigmaG), sigma_2(G2.sigmaG), sigma_f1(G1.sigma_f), sigma_f2(G2.sigma_f),
@@ -185,9 +187,6 @@ public:
 
      void delta2trans(){
         size_t cnt = 0, a, t, b;
-        std::vector<std::vector<size_t >> trans;
-
-
         for (const auto& i: delta){
             if(newStates.find({i.first[0], i.first[1]}) == newStates.end()){
                 newStates[{i.first[0], i.first[1]}] = cnt++;
@@ -200,6 +199,7 @@ public:
                 }
                 b = newStates[{j[0], j[1]}];
                 trans.push_back({a, t, b});
+                states.push_back(a);
             }
         }
 
@@ -222,7 +222,7 @@ public:
             }
             std::cout << std::endl;
         }
-         std::cout <<"Trans#: " << trans.size() << "  State#: " << newStates.size() <<std::endl;
+         std::cout <<"Trans#: " << trans.size() << "  State#: " << sigma_f.size() <<std::endl;
          std::cout << "Finished!\n" << std::endl;
     }
 };

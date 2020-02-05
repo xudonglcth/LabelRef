@@ -31,7 +31,6 @@ public:
 
     static std::vector<std::vector<System> > constructG(int n){
         std::vector<size_t > r_up, r_down, eat, think;
-
         for (int i = 1; i <= n; ++i){
             r_up.push_back(i);
             r_down.push_back(n + i);

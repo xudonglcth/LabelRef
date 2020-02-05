@@ -12,16 +12,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="159d8b81-865f-4435-a367-9878fef0f1b6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/dinningPhilosophers.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LabelRefwithClass.h" beforeDir="false" afterPath="$PROJECT_DIR$/LabelRefwithClass.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LabelRef.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LabelRef.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LabelRef.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LabelRef.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LabelRef.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LabelRef.dir/depend.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LabelRef.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LabelRef.dir/main.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/LabelRef" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/LabelRef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/LabelRef.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/LabelRef.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dinningPhilosophers.h" beforeDir="false" afterPath="$PROJECT_DIR$/dinningPhilosophers.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sync.h" beforeDir="false" afterPath="$PROJECT_DIR$/sync.h" afterDir="false" />
     </list>
@@ -38,6 +33,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectId" id="1UmhBr7oyMmgAvNsV2xlX0BB7DA" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
@@ -96,7 +92,7 @@
       <workItem from="1580467892011" duration="7753000" />
       <workItem from="1580509724339" duration="1204000" />
       <workItem from="1580641546266" duration="6477000" />
-      <workItem from="1580722055624" duration="30466000" />
+      <workItem from="1580722055624" duration="34607000" />
     </task>
     <task id="LOCAL-00001" summary="Changed the test case to vasy_25_25">
       <created>1576075563819</created>
@@ -168,7 +164,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580510059431</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="added dining and sync">
+      <created>1580828303819</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1580828303819</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -209,6 +212,18 @@
     <MESSAGE value="updated the sigref function, now initial blocks supported" />
     <MESSAGE value="updated labelref function, now abstracted states and transitions added." />
     <MESSAGE value="updated labelref function, now abstracted states and transitions added.&#10;Two other ways to be compared(manually insert and vector unique)." />
-    <option name="LAST_COMMIT_MESSAGE" value="updated labelref function, now abstracted states and transitions added.&#10;Two other ways to be compared(manually insert and vector unique)." />
+    <MESSAGE value="added dining and sync" />
+    <option name="LAST_COMMIT_MESSAGE" value="added dining and sync" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/main.cpp</url>
+          <line>631</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

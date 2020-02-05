@@ -17,9 +17,9 @@ public:
     state states;
     transition transitions;
     std::vector<size_t> partitions_new;
-    int tau = 0;
+    std::set<size_t> tau = {0};
     LabelRef() = default;
-    LabelRef(state &s, transition &t, std::vector<size_t > &p, int tau_)
+    LabelRef(state &s, transition &t, std::vector<size_t > &p, std::set<size_t> tau_)
             :
             states(s), transitions(t), partitions_new(p), tau(tau_) {}
 private:
@@ -49,7 +49,7 @@ public:
 
             for(auto current_trans : transitions){
                 size_t source = current_trans[0], event = current_trans[1], target = current_trans[2];
-                if (!(event == tau && partitions[source] == partitions[target])){
+                if (!(tau.find(event) != tau.end() && partitions[source] == partitions[target])){
                     labelInsert(source, event, partitions[target]);
                 }
             }
@@ -103,7 +103,7 @@ private:
         if (label[target].insert(std::make_pair(event, block)).second){
             for(size_t i = lower_bound[target]; i < upper_bound[target]; i++){
                 //in_going_trans ingoingTrans = inTransPerState[i];
-                if (inTransPerState[i][1] == tau && partitions[target] == partitions[inTransPerState[i][0]]){
+                if (tau.find(inTransPerState[i][1]) != tau.end() && partitions[target] == partitions[inTransPerState[i][0]]){
                     labelInsert(inTransPerState[i][0], event, block);
                 }
             }
@@ -114,7 +114,7 @@ private:
         if (label[target].insert(std::make_pair(event, block)).second){
             for(size_t i = lower_bound[target]; i < upper_bound[target]; i++){
                 in_going_trans ingoingTrans = inTransPerState[i];
-                if (ingoingTrans[1] == tau && partitions[target] == partitions[ingoingTrans[0]]){
+                if (tau.find(ingoingTrans[1]) != tau.end() && partitions[target] == partitions[ingoingTrans[0]]){
                     labelInsert_1(ingoingTrans[0], event, block);
                 }
             }
